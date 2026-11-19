@@ -238,6 +238,23 @@ section { position: relative; }
 @media (max-width: 1000px) { .t-feature { grid-column: span 12; min-height: 380px; } .t-5, .t-3, .t-altura { grid-column: span 6; } }
 @media (max-width: 640px) { .t-5, .t-3, .t-altura { grid-column: span 12; } .tile { padding: 24px; } .tile .ph { margin: -24px -24px 10px; } .t-altura { padding: 0; } }
 
+
+/* estrutura */
+.sx { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.sx-head { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; position: sticky; top: calc(var(--header) + 32px); }
+.sx-note { font-size: 13px; color: var(--mute); }
+.sx-head .link-arrow { color: var(--red); }
+.sx-steps { display: flex; flex-direction: column; gap: 18px; }
+.sx-steps li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.sx-steps figure { margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--ink-2); }
+.sx-steps img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.sx-steps li:hover img { transform: scale(1.04); }
+.sx-steps li > div { display: flex; flex-direction: column; gap: 8px; padding-right: 10px; }
+.sx-n { font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--red); }
+.sx-steps h3 { font-size: 20px; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
+.sx-steps p { font-size: 15px; color: var(--body); line-height: 1.55; }
+@media (max-width: 920px) { .sx { grid-template-columns: 1fr; } .sx-head { position: static; } }
+@media (max-width: 600px) { .sx-steps li { grid-template-columns: 1fr; gap: 14px; } .sx-steps li > div { padding: 0 6px 6px; } }
 /* 4. números */
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; position: relative; z-index: 1; }
 .stat { display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 2px solid rgba(255, 255, 255, 0.22); min-width: 0; position: relative; }
@@ -265,6 +282,20 @@ figure { margin: 0; }
 @media (max-width: 1000px) { .works { grid-template-columns: repeat(4, 64vw); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -18px; padding: 0 18px 8px; scrollbar-width: none; } .works::-webkit-scrollbar { display: none; } .work { scroll-snap-align: start; } }
 @media (min-width: 601px) and (max-width: 1000px) { .works { grid-template-columns: repeat(4, 38vw); } }
 
+.more { margin-top: clamp(40px, 5vw, 64px); }
+.more-t { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 18px; }
+.more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.mcard { margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.mimg { position: relative; aspect-ratio: 9 / 11; border-radius: 14px; overflow: hidden; background: var(--ink-2); }
+.mimg img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.mcard:hover .mimg img { transform: scale(1.04); }
+.mimg .lbl { position: absolute; top: 10px; z-index: 2; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; padding: 5px 10px; border-radius: 999px; }
+.mimg .lbl.b { left: 10px; background: var(--ink); }
+.mimg .lbl.a { right: 10px; background: var(--red-bright); }
+.mcard figcaption { font-size: 14px; color: var(--body); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.mcard figcaption b { color: var(--ink); font-weight: 600; }
+@media (max-width: 1000px) { .more-grid { grid-template-columns: repeat(3, 70vw); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -18px; padding: 0 18px 8px; scrollbar-width: none; } .more-grid::-webkit-scrollbar { display: none; } .mcard { scroll-snap-align: start; } }
+@media (min-width: 601px) and (max-width: 1000px) { .more-grid { grid-template-columns: repeat(3, 42vw); } }
 /* 6. por que cymaco */
 .why { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .why-copy { display: flex; flex-direction: column; gap: 20px; }
@@ -488,7 +519,7 @@ figure { margin: 0; }
         <p>Substituição de pastilhas e cerâmicas soltas antes que virem risco para moradores e pedestres.</p>
       </article>
       <article class="tile t-3 rv" style="--d:1">
-        <span class="ph"><img src="img/impermeabilizacao.webp" alt="Profissional aplicando manta líquida de impermeabilização sobre uma laje" width="800" height="592" loading="lazy"></span>
+        <span class="ph"><img src="img/impermeabilizacao.webp" alt="Mão com luva aplicando argamassa de impermeabilização com trincha em obra da Cymaco em São Paulo" width="800" height="601" loading="lazy"></span>
         <h3>Impermeabilização</h3>
         <p>Lajes, coberturas, reservatórios e fachadas protegidos contra a água por muitos anos.</p>
       </article>
@@ -498,13 +529,44 @@ figure { margin: 0; }
         <p>Tintas de alta performance com nanotecnologia, que protegem a fachada e mantêm a cor por mais tempo.</p>
       </article>
       <article class="tile t-altura rv" style="--d:3">
-        <img src="img/altura.webp" alt="Profissional da Cymaco em cadeirinha suspensa pintando a fachada de um prédio" width="700" height="972" loading="lazy">
+        <img src="img/altura.webp" alt="Dois profissionais da Cymaco em cadeirinhas suspensas pintando as varandas de um prédio em Pinheiros, São Paulo" width="800" height="560" loading="lazy">
         <div class="in-tile">
           <h3>Trabalho em altura com segurança</h3>
           <p>Equipes treinadas, com equipamentos de proteção e obra segurada.</p>
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- 3b. ESTRUTURA -->
+<section class="band" id="estrutura" aria-labelledby="h-estrutura">
+  <div class="wrap sx">
+    <div class="sx-head">
+      <p class="eyebrow rv">Recuperação estrutural</p>
+      <h2 class="h2 title-bar rv" id="h-estrutura" style="--d:1">Por dentro de uma obra estrutural</h2>
+      <p class="lead rv" style="--d:2">Fachada bonita começa por uma estrutura sã. Antes de qualquer pintura, a equipe trata o que está por trás do problema, com engenheiro responsável acompanhando cada etapa.</p>
+      <p class="sx-note rv" style="--d:3">Fotos de obras da Cymaco em São Paulo</p>
+      <a class="link-arrow wa rv" style="--d:3" data-cta="estrutura" href="#" target="_blank" rel="noopener">Pedir avaliação estrutural <span aria-hidden="true">→</span></a>
+    </div>
+    <ol class="sx-steps">
+      <li class="rv">
+        <figure><img style="object-position: 50% 8%" src="img/sp-engenheira.webp" alt="Engenheira da Cymaco de capacete branco acompanhando uma obra na cobertura de um prédio em São Paulo" width="900" height="805" loading="lazy"></figure>
+        <div><span class="sx-n">01</span><h3>Inspeção e diagnóstico</h3><p>O engenheiro mapeia fissuras, armaduras expostas, infiltrações e pontos de risco. É daí que saem o escopo da obra e a ART.</p></div>
+      </li>
+      <li class="rv">
+        <figure><img src="img/sp-remocao.webp" alt="Profissional da Cymaco removendo reboco e revestimento deteriorados de um muro com uma barra de ferro" width="900" height="532" loading="lazy"></figure>
+        <div><span class="sx-n">02</span><h3>Remoção do que está comprometido</h3><p>Reboco solto e concreto deteriorado são retirados até chegar à base firme, para o reparo não ficar só na superfície.</p></div>
+      </li>
+      <li class="rv">
+        <figure><img src="img/sp-estrutura.webp" alt="Equipe da Cymaco com cinto de segurança montando a nova estrutura de madeira da cobertura de um prédio" width="1000" height="412" loading="lazy"></figure>
+        <div><span class="sx-n">03</span><h3>Tratamento e reforço da estrutura</h3><p>As armaduras são limpas e protegidas contra a corrosão, e as peças que perderam resistência são reforçadas ou substituídas, inclusive na cobertura.</p></div>
+      </li>
+      <li class="rv">
+        <figure><img src="img/sp-reconstituicao.webp" alt="Profissional da Cymaco aplicando argamassa no piso e nas paredes de um reservatório" width="900" height="879" loading="lazy"></figure>
+        <div><span class="sx-n">04</span><h3>Reconstituição e proteção</h3><p>Argamassas estruturais recompõem o que foi removido, e a impermeabilização impede a água de voltar. Só depois vem o acabamento.</p></div>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -534,28 +596,51 @@ figure { margin: 0; }
     <div class="works">
       <figure class="work rv">
         <div class="ba">
+          <img src="img/sp-torre-depois.webp" alt="Edifício residencial em São Paulo depois do retrofit, com fachada branca e cinza" width="760" height="1008" loading="lazy">
+          <img class="before" src="img/sp-torre-antes.webp" alt="O mesmo edifício antes da obra, com fachada bege desgastada e equipe em trabalho de altura" width="760" height="1008" loading="lazy">
+          <span class="lbl b">Antes</span><span class="lbl a">Depois</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois do edifício em São Paulo">
+          <span class="handle" aria-hidden="true"></span>
+        </div>
+        <figcaption><b>Residencial em São Paulo</b><span>Arraste para comparar</span></figcaption>
+      </figure>
+      <figure class="work rv" style="--d:1">
+        <div class="ba">
           <img src="img/jurere-depois.webp" alt="Prédio residencial em Jurerê depois da obra, com fachada branca limpa" width="1050" height="1560" loading="lazy">
           <img class="before" src="img/jurere-antes.webp" alt="O mesmo prédio antes da obra, com fachada manchada de mofo e reboco desgastado" width="1050" height="1560" loading="lazy">
           <span class="lbl b">Antes</span><span class="lbl a">Depois</span>
           <input type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois do prédio em Jurerê">
           <span class="handle" aria-hidden="true"></span>
         </div>
-        <figcaption><b>Residencial em Jurerê</b><span>Arraste para comparar</span></figcaption>
+        <figcaption><b>Residencial em Jurerê</b><span>Florianópolis</span></figcaption>
       </figure>
-      <figure class="work rv" style="--d:1">
+      <figure class="work rv" style="--d:2">
         <div class="vid"><video class="loop" muted loop playsinline preload="none" poster="video/regents-park.webp"><source src="video/regents-park.mp4" type="video/mp4"></video><button class="vbtn" type="button" aria-label="Pausar vídeo"></button></div>
         <figcaption><b>Regents Park</b><span>Florianópolis</span></figcaption>
       </figure>
-      <figure class="work rv" style="--d:2">
+      <figure class="work rv" style="--d:3">
         <div class="vid"><video class="loop" muted loop playsinline preload="none" poster="video/solar-angra.webp"><source src="video/solar-angra.mp4" type="video/mp4"></video><button class="vbtn" type="button" aria-label="Pausar vídeo"></button></div>
         <figcaption><b>Solar Angra dos Reis</b><span>Florianópolis</span></figcaption>
       </figure>
-      <figure class="work rv" style="--d:3">
-        <div class="vid"><video class="loop" muted loop playsinline preload="none" poster="video/linea.webp"><source src="video/linea.mp4" type="video/mp4"></video><button class="vbtn" type="button" aria-label="Pausar vídeo"></button></div>
-        <figcaption><b>Linea</b><span>Florianópolis</span></figcaption>
-      </figure>
     </div>
-    <p class="works-note">Obras entregues pela rede Cymaco em Florianópolis.</p>
+    <div class="more">
+      <h3 class="more-t rv">Mais obras da Cymaco em São Paulo</h3>
+      <div class="more-grid">
+        <figure class="mcard rv" style="--d:0">
+          <div class="mimg"><img src="img/obra-retrato-pinheiros.webp" alt="Torre Retrato Pinheiros com a fachada concluída em cinza e vermelho, vista de baixo entre árvores floridas" width="900" height="1100" loading="lazy"></div>
+          <figcaption><b>Retrato Pinheiros</b><span>Pinheiros</span></figcaption>
+        </figure>
+        <figure class="mcard rv" style="--d:1">
+          <div class="mimg"><img src="img/obra-double-space.webp" alt="Edifício Double Space com a fachada concluída, visto de baixo com palmeiras na frente" width="900" height="1100" loading="lazy"></div>
+          <figcaption><b>Double Space</b><span>São Paulo</span></figcaption>
+        </figure>
+        <figure class="mcard rv" style="--d:2">
+          <div class="mimg"><img src="img/obra-villaggio-panamby.webp" alt="Vista aérea das torres do condomínio Villaggio Panamby cercadas de mata, com piscina e jardins" width="900" height="1100" loading="lazy"></div>
+          <figcaption><b>Villaggio Panamby</b><span>Panamby</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="works-note">Obras entregues pela rede Cymaco em São Paulo e Florianópolis.</p>
   </div>
 </section>
 
