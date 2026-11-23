@@ -245,16 +245,15 @@ section { position: relative; }
 .sx-note { font-size: 13px; color: var(--mute); }
 .sx-head .link-arrow { color: var(--red); }
 .sx-steps { display: flex; flex-direction: column; gap: 18px; }
-.sx-steps li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
-.sx-steps figure { margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--ink-2); }
-.sx-steps img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-.sx-steps li:hover img { transform: scale(1.04); }
+.sx-steps li { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 24px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.sx-steps figure { margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--ink-2); }
+.sx-steps video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sx-steps li > div { display: flex; flex-direction: column; gap: 8px; padding-right: 10px; }
 .sx-n { font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--red); }
 .sx-steps h3 { font-size: 20px; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
 .sx-steps p { font-size: 15px; color: var(--body); line-height: 1.55; }
 @media (max-width: 920px) { .sx { grid-template-columns: 1fr; } .sx-head { position: static; } }
-@media (max-width: 600px) { .sx-steps li { grid-template-columns: 1fr; gap: 14px; } .sx-steps li > div { padding: 0 6px 6px; } }
+@media (max-width: 600px) { .sx-steps li { grid-template-columns: 1fr; gap: 14px; } .sx-steps li > div { padding: 0 6px 6px; } .sx-steps figure { aspect-ratio: 4 / 5; } }
 /* 4. números */
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; position: relative; z-index: 1; }
 .stat { display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 2px solid rgba(255, 255, 255, 0.22); min-width: 0; position: relative; }
@@ -550,19 +549,19 @@ figure { margin: 0; }
     </div>
     <ol class="sx-steps">
       <li class="rv">
-        <figure><img style="object-position: 50% 8%" src="img/sp-engenheira.webp" alt="Engenheira da Cymaco de capacete branco acompanhando uma obra na cobertura de um prédio em São Paulo" width="900" height="805" loading="lazy"></figure>
+        <figure><video class="loop" muted loop playsinline preload="none" poster="video/estrutura-01.webp" aria-label="Pilar com concreto deteriorado e ferragens expostas, depois recuperado pela Cymaco"><source src="video/estrutura-01.mp4" type="video/mp4"></video></figure>
         <div><span class="sx-n">01</span><h3>Inspeção e diagnóstico</h3><p>O engenheiro mapeia fissuras, armaduras expostas, infiltrações e pontos de risco. É daí que saem o escopo da obra e a ART.</p></div>
       </li>
       <li class="rv">
-        <figure><img src="img/sp-remocao.webp" alt="Profissional da Cymaco removendo reboco e revestimento deteriorados de um muro com uma barra de ferro" width="900" height="532" loading="lazy"></figure>
+        <figure><video class="loop" muted loop playsinline preload="none" poster="video/estrutura-02.webp" aria-label="Profissional da Cymaco escarificando e lixando o concreto danificado de uma laje"><source src="video/estrutura-02.mp4" type="video/mp4"></video></figure>
         <div><span class="sx-n">02</span><h3>Remoção do que está comprometido</h3><p>Reboco solto e concreto deteriorado são retirados até chegar à base firme, para o reparo não ficar só na superfície.</p></div>
       </li>
       <li class="rv">
-        <figure><img src="img/tratamento-ferragens.webp" alt="Profissional de uniforme vermelho e capacete aplicando primer anticorrosivo nas ferragens expostas de uma varanda" width="1000" height="750" loading="lazy"></figure>
+        <figure><video class="loop" muted loop playsinline preload="none" poster="video/estrutura-03.webp" aria-label="Pintura de proteção nas ferragens, execução das formas e grauteamento da laje"><source src="video/estrutura-03.mp4" type="video/mp4"></video></figure>
         <div><span class="sx-n">03</span><h3>Tratamento e reforço da estrutura</h3><p>As ferragens expostas são limpas, recebem proteção anticorrosiva e, quando perderam seção, são reforçadas com novas barras antes de fechar o concreto.</p></div>
       </li>
       <li class="rv">
-        <figure><img src="img/sp-reconstituicao.webp" alt="Profissional da Cymaco aplicando argamassa no piso e nas paredes de um reservatório" width="900" height="879" loading="lazy"></figure>
+        <figure><video class="loop" muted loop playsinline preload="none" poster="video/estrutura-04.webp" aria-label="Preparo e lançamento do graute na forma do pilar e o pilar recuperado"><source src="video/estrutura-04.mp4" type="video/mp4"></video></figure>
         <div><span class="sx-n">04</span><h3>Reconstituição e proteção</h3><p>Argamassas estruturais recompõem o que foi removido, e a impermeabilização impede a água de voltar. Só depois vem o acabamento.</p></div>
       </li>
     </ol>
